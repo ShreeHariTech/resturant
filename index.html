@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegance | Premium Fine Dining</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0d0d0d',
+                        gold: '#d4af37',
+                    },
+                    fontFamily: {
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flatpickr for Date/Time Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .text-gold {
+            color: #d4af37;
+        }
+        .bg-gold {
+            background-color: #d4af37;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #d4af37 0%, #f2d984 50%, #d4af37 100%);
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .slide-up {
+            animation: slideUp 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full bg-dark bg-opacity-90 z-50 py-4 px-6 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-gold font-serif text-3xl font-bold">Elegance</a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-gold transition-colors duration-300">Home</a>
+                <a href="#menu" class="text-white hover:text-gold transition-colors duration-300">Menu</a>
+                <a href="#book" class="text-white hover:text-gold transition-colors duration-300">Book</a>
+                <a href="#location" class="text-white hover:text-gold transition-colors duration-300">Location</a>
+                <a href="#contact" class="text-white hover:text-gold transition-colors duration-300">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark bg-opacity-95 w-full absolute left-0 py-4 px-6 mt-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="text-white hover:text-gold transition-colors duration-300">Home</a>
+                <a href="#menu" class="text-white hover:text-gold transition-colors duration-300">Menu</a>
+                <a href="#book" class="text-white hover:text-gold transition-colors duration-300">Book</a>
+                <a href="#location" class="text-white hover:text-gold transition-colors duration-300">Location</a>
+                <a href="#contact" class="text-white hover:text-gold transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Elegant Restaurant Interior" 
+                 class="w-full h-full object-cover">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 fade-in">
+                <span class="text-white">Experience</span> 
+                <span class="text-gold">Fine Dining</span>
+            </h1>
+            <p class="text-white text-xl md:text-2xl mb-10 max-w-3xl mx-auto fade-in" style="animation-delay: 0.3s;">
+                Indulge in exquisite cuisine crafted with passion and served with elegance
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 slide-up" style="animation-delay: 0.6s;">
+                <a href="#book" class="bg-gold text-dark font-bold py-3 px-8 rounded-sm hover:bg-opacity-80 transition-all duration-300 text-lg">
+                    Reserve a Table
+                </a>
+                <a href="#menu" class="border-2 border-white text-white font-bold py-3 px-8 rounded-sm hover:bg-white hover:text-dark transition-all duration-300 text-lg">
+                    View Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-gold">Our</span> <span class="text-white">Menu</span>
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">Indulge in our exquisite selection of dishes crafted with the finest ingredients and culinary expertise</p>
+            </div>
+            
+            <!-- Menu Categories -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Starters -->
+                <div class="bg-black bg-opacity-50 p-6 rounded-sm border border-gold border-opacity-20 hover:border-opacity-50 transition-all duration-300 reveal">
+                    <h3 class="text-gold font-serif text-2xl mb-6 text-center">Starters</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="group">
+                            <div class="overflow-hidden rounded-sm mb-4">
+                                <img src="https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80" 
+                                     alt="Truffle Arancini" 
+                                     class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-white text-xl mb-2">Truffle Arancini</h4>
+                            <p class="text-gray-400 text-sm mb-3">Crispy risotto balls infused with black truffle and parmesan</p>
+                            <p class="text-gold font-bold">$18</p>
+                        </div>
+                        
+                        <div class="group">
+                            <div class="overflow-hidden rounded-sm mb-4">
+                                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                     alt="Seared Scallops" 
+                                     class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-white text-xl mb-2">Seared Scallops</h4>
+                            <p class="text-gray-400 text-sm mb-3">Pan-seared scallops with cauliflower purée and crispy pancetta</p>
+                            <p class="text-gold font-bold">$22</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Courses -->
+                <div class="bg-black bg-opacity-50 p-6 rounded-sm border border-gold border-opacity-20 hover:border-opacity-50 transition-all duration-300 reveal">
+                    <h3 class="text-gold font-serif text-2xl mb-6 text-center">Main Courses</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="group">
+                            <div class="overflow-hidden rounded-sm mb-4">
+                                <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                     alt="Filet Mignon" 
+                                     class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-white text-xl mb-2">Filet Mignon</h4>
+                            <p class="text-gray-400 text-sm mb-3">Prime beef tenderloin with truffle mashed potatoes and red wine jus</p>
+                            <p class="text-gold font-bold">$42</p>
+                        </div>
+                        
+                        <div class="group">
+                            <div class="overflow-hidden rounded-sm mb-4">
+                                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                     alt="Herb-Crusted Salmon" 
+                                     class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-white text-xl mb-2">Herb-Crusted Salmon</h4>
+                            <p class="text-gray-400 text-sm mb-3">Atlantic salmon with herb crust, saffron risotto and lemon butter sauce</p>
+                            <p class="text-gold font-bold">$36</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desserts -->
+                <div class="bg-black bg-opacity-50 p-6 rounded-sm border border-gold border-opacity-20 hover:border-opacity-50 transition-all duration-300 reveal">
+                    <h3 class="text-gold font-serif text-2xl mb-6 text-center">Desserts</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="group">
+                            <div class="overflow-hidden rounded-sm mb-4">
+                                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" 
+                                     alt="Chocolate Fondant" 
+                                     class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-white text-xl mb-2">Chocolate Fondant</h4>
+                            <p class="text-gray-400 text-sm mb-3">Warm chocolate cake with molten center and vanilla bean ice cream</p>
+                            <p class="text-gold font-bold">$14</p>
+                        </div>
+                        
+                        <div class="group">
+                            <div class="overflow-hidden rounded-sm mb-4">
+                                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" 
+                                     alt="Crème Brûlée" 
+                                     class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-white text-xl mb-2">Crème Brûlée</h4>
+                            <p class="text-gray-400 text-sm mb-3">Classic vanilla custard with caramelized sugar crust and fresh berries</p>
+                            <p class="text-gold font-bold">$12</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Drinks -->
+                <div class="bg-black bg-opacity-50 p-6 rounded-sm border border-gold border-opacity-20 hover:border-opacity-50 transition-all duration-300 reveal">
+                    <h3 class="text-gold font-serif text-2xl mb-6 text-center">Drinks</h3>
+                    
+                    <div class="space-y-8">
+                        <div class="group">
+                            <div class="overflow-hidden rounded-sm mb-4">
+                                <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1072&q=80" 
+                                     alt="Signature Cocktails" 
+                                     class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-white text-xl mb-2">Signature Cocktails</h4>
+                            <p class="text-gray-400 text-sm mb-3">Handcrafted cocktails made with premium spirits and fresh ingredients</p>
+                            <p class="text-gold font-bold">$16</p>
+                        </div>
+                        
+                        <div class="group">
+                            <div class="overflow-hidden rounded-sm mb-4">
+                                <img src="https://images.unsplash.com/photo-1586370434639-0fe43b2d32e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                     alt="Fine Wines" 
+                                     class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-white text-xl mb-2">Fine Wines</h4>
+                            <p class="text-gray-400 text-sm mb-3">Curated selection of wines from renowned vineyards around the world</p>
+                            <p class="text-gold font-bold">$14-$200</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="#book" class="inline-block bg-gold text-dark font-bold py-3 px-8 rounded-sm hover:bg-opacity-80 transition-all duration-300 text-lg">
+                    Reserve a Table
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="book" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-gold">Reserve</span> <span class="text-white">Your Table</span>
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">Experience our exquisite cuisine and impeccable service by reserving your table today</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-dark bg-opacity-70 p-8 rounded-sm border border-gold border-opacity-20 reveal">
+                <form id="booking-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="name" class="block text-white mb-2">Full Name *</label>
+                        <input type="text" id="name" name="name" required 
+                               class="w-full bg-black bg-opacity-50 text-white border border-gold border-opacity-30 rounded-sm px-4 py-3 focus:outline-none focus:border-gold">
+                    </div>
+                    
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone" class="block text-white mb-2">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required 
+                               class="w-full bg-black bg-opacity-50 text-white border border-gold border-opacity-30 rounded-sm px-4 py-3 focus:outline-none focus:border-gold">
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="block text-white mb-2">Email Address *</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full bg-black bg-opacity-50 text-white border border-gold border-opacity-30 rounded-sm px-4 py-3 focus:outline-none focus:border-gold">
+                    </div>
+                    
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label for="date" class="block text-white mb-2">Date *</label>
+                        <input type="date" id="date" name="date" required 
+                               class="w-full bg-black bg-opacity-50 text-white border border-gold border-opacity-30 rounded-sm px-4 py-3 focus:outline-none focus:border-gold datepicker">
+                    </div>
+                    
+                    <!-- Time -->
+                    <div class="form-group">
+                        <label for="time" class="block text-white mb-2">Time *</label>
+                        <input type="time" id="time" name="time" required 
+                               class="w-full bg-black bg-opacity-50 text-white border border-gold border-opacity-30 rounded-sm px-4 py-3 focus:outline-none focus:border-gold timepicker">
+                    </div>
+                    
+                    <!-- Party Size -->
+                    <div class="form-group">
+                        <label for="party-size" class="block text-white mb-2">Party Size *</label>
+                        <select id="party-size" name="party-size" required 
+                                class="w-full bg-black bg-opacity-50 text-white border border-gold border-opacity-30 rounded-sm px-4 py-3 focus:outline-none focus:border-gold">
+                            <option value="">Select number of guests</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5">5 People</option>
+                            <option value="6">6 People</option>
+                            <option value="7">7 People</option>
+                            <option value="8">8 People</option>
+                            <option value="9+">9+ People</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Special Requests -->
+                    <div class="form-group md:col-span-2">
+                        <label for="special-requests" class="block text-white mb-2">Special Requests</label>
+                        <textarea id="special-requests" name="special-requests" rows="4" 
+                                  class="w-full bg-black bg-opacity-50 text-white border border-gold border-opacity-30 rounded-sm px-4 py-3 focus:outline-none focus:border-gold"></textarea>
+                    </div>
+                    
+                    <!-- Gujarati Booking Information -->
+                    <div class="form-group md:col-span-2 mt-2 mb-4">
+                        <p class="text-gold text-center text-sm">
+                            ટેબલની ઉપલબ્ધતા પર મળશે, બુકિંગ કન્ફર્મેશન તમારા WhatsApp પર આવી જશે. જો ૧૦ થી વધારે વ્યક્તિઓ હોય તો ડાયરેક્ટ કૉલ કરો.
+                        </p>
+                        <p class="text-gray-300 text-center text-sm mt-1">
+                            Table availability will be confirmed, booking confirmation will be sent via WhatsApp. If more than 10 people, please call directly.
+                        </p>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="form-group md:col-span-2 text-center">
+                        <button type="submit" class="bg-gold text-dark font-bold py-3 px-12 rounded-sm hover:bg-opacity-80 transition-all duration-300 text-lg">
+                            Reserve Now
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+        <div class="bg-dark border-2 border-gold p-8 rounded-sm max-w-md w-full mx-4 relative z-10">
+            <div class="text-center">
+                <i class="fas fa-check-circle text-gold text-5xl mb-4"></i>
+                <h3 class="text-white font-serif text-2xl mb-2">Booking Request Sent!</h3>
+                <p class="text-gray-300 mb-4">Your table reservation request has been sent via WhatsApp. We'll confirm your booking shortly.</p>
+                <p class="text-gold text-sm mb-6">ટેબલ બુકિંગની વિનંતી WhatsApp પર મોકલવામાં આવી છે. અમે ટૂંક સમયમાં તમારી બુકિંગની પુષ્ટિ કરીશું.</p>
+                <button id="close-modal" class="bg-gold text-dark font-bold py-2 px-6 rounded-sm hover:bg-opacity-80 transition-all duration-300">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location Section -->
+    <section id="location" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+                    <span class="text-gold">Find</span> <span class="text-white">Us</span>
+                </h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">Located in the heart of the city, our restaurant offers a perfect setting for your dining experience</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center reveal">
+                <!-- Map -->
+                <div class="h-96 w-full rounded-sm overflow-hidden border border-gold border-opacity-20">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2176668558187!2d-73.98784542396902!3d40.75798833440646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1695000000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+                <!-- Address & Hours -->
+                <div class="bg-black bg-opacity-50 p-8 rounded-sm border border-gold border-opacity-20">
+                    <h3 class="text-gold font-serif text-2xl mb-6">Elegance Fine Dining</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gold text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-white text-lg mb-2">Address</h4>
+                                <p class="text-gray-300">123 Luxury Avenue<br>New York, NY 10036<br>United States</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-gold text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-white text-lg mb-2">Opening Hours</h4>
+                                <p class="text-gray-300">
+                                    Monday - Thursday: 5:00 PM - 10:00 PM<br>
+                                    Friday - Saturday: 5:00 PM - 11:00 PM<br>
+                                    Sunday: 5:00 PM - 9:00 PM
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-gold text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-white text-lg mb-2">Contact</h4>
+                                <p class="text-gray-300">
+                                    Phone: +1 (212) 555-1234<br>
+                                    Email: reservations@elegance.com
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.google.com/maps/dir//Times+Square,+Manhattan,+NY+10036/@40.7579954,-73.9856644,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x89c25855c6480299:0x55194ec5a1ae072e!2m2!1d-73.9856644!2d40.7579954!3e0" 
+                           target="_blank" 
+                           class="inline-block bg-gold text-dark font-bold py-3 px-8 rounded-sm hover:bg-opacity-80 transition-all duration-300 text-lg mt-4">
+                            <i class="fas fa-directions mr-2"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Floating WhatsApp Button -->
+    <div id="whatsapp-btn" class="fixed bottom-6 right-6 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg cursor-pointer hover:bg-green-600 transition-all duration-300 z-40">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </div>
+    
+    <!-- Footer -->
+    <footer id="contact" class="bg-black py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- About -->
+                <div>
+                    <h3 class="text-gold font-serif text-2xl mb-4">Elegance</h3>
+                    <p class="text-gray-300 mb-4">Experience the art of fine dining in an elegant atmosphere with exceptional service and exquisite cuisine.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-gold transition-colors duration-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-gold transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-gold transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-gold transition-colors duration-300"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Opening Hours -->
+                <div>
+                    <h3 class="text-gold font-serif text-2xl mb-4">Opening Hours</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex justify-between">
+                            <span>Monday - Thursday</span>
+                            <span>5:00 PM - 10:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Friday - Saturday</span>
+                            <span>5:00 PM - 11:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>5:00 PM - 9:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-gold font-serif text-2xl mb-4">Contact Us</h3>
+                    <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gold mr-3 mt-1"></i>
+                            <span>123 Luxury Avenue, New York, NY 10036</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-gold mr-3 mt-1"></i>
+                            <span>+1 (212) 555-1234</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-gold mr-3 mt-1"></i>
+                            <span>reservations@elegance.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center">
+                <p class="text-gray-400">&copy; 2023 Elegance Fine Dining. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
